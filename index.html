@@ -73,6 +73,29 @@
         .nav-links a:hover { color: var(--accent-blue); }
         .nav-links a:hover::after { width: 100%; }
         .mobile-menu { display: none; color: var(--text-light); font-size: 1.5rem; cursor: pointer; background: none; border: none; }
+        /* Mobile Nav active state */
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-dark);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 1rem 20px;
+            text-align: center;
+            z-index: 999;
+        }
+        .nav-links.active a {
+            padding: 1rem 0;
+            width: 100%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links.active a:last-child {
+            border-bottom: none;
+        }
+
 
         /* Hero Section */
         .hero {
@@ -112,7 +135,7 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px; align-items: center; justify-items: center;
         }
-        .partner-logo { max-width: 180px; filter: grayscale(100%); transition: filter var(--transition-speed) ease; }
+        .partner-logo { max-width: 180px; height: auto; filter: grayscale(100%); transition: filter var(--transition-speed) ease; }
         .partner-logo:hover { filter: grayscale(0%); }
 
         /* Services Section */
@@ -215,10 +238,13 @@
             .hero { padding: calc(var(--header-height) + 60px) 0 80px; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1rem; }
+            .about-grid .about-photo { order: -1; margin-bottom: 20px;} /* Photo above text on mobile */
+            .about-grid h2, .about-grid p { text-align: center; } /* Center text on mobile */
         }
         @media (max-width: 600px) {
             .cta-buttons { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
+            .partner-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
         }
     </style>
 </head>
@@ -598,11 +624,13 @@
             e.target.reset();
         });
 
-        // Simplified smooth scroll (using CSS)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         });
     </script>
