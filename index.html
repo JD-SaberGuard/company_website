@@ -87,25 +87,29 @@
         .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin: 0 0 1rem; font-weight: 800; }
         .hero p { font-size: clamp(1rem, 2.1vw, 1.25rem); opacity: .9; margin: 0 0 2rem; }
         .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-        /* Founder Section */
-        .founder { padding: 80px 0; background: var(--bg-light); text-align: center; }
-        .founder-content { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-        .founder-photo { 
-            width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+        
+        /* About Us Section */
+        .about { padding: 80px 0; text-align: center; }
+        .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; }
+        .about-grid h2 { color: var(--primary-purple); font-size: clamp(1.8rem, 3vw, 2.5rem); text-align: left; }
+        .about-grid p { color: #555; text-align: left; }
+        .about-photo { 
+            width: 100%; max-width: 300px; border-radius: 12px; object-fit: cover;
             border: 4px solid var(--primary-purple); box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
-            margin-bottom: 20px;
         }
-        .founder h2 { color: var(--primary-purple); font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 1rem; }
-        .founder h3 { color: var(--accent-blue); font-size: 1.2rem; margin-top: 0; }
-        .founder p { color: #555; }
+        .about-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; margin-top: 40px; }
+        .stat-card { background: #eef3f6; padding: 20px; border-radius: 12px; }
+        .stat-card h3 { font-size: 2rem; color: var(--primary-purple); margin: 0; }
+        .stat-card p { margin: 0; font-size: 0.9rem; color: #555; }
+        .certifications { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+        .certifications .badge { background: var(--primary-purple); color: #fff; padding: 8px 16px; border-radius: 99px; font-size: 0.9rem; font-weight: 600; }
 
-        /* Partners Section */
+        /* Partner Section */
         .partners { padding: 80px 0; background: #fff; }
         .partners h2 { margin: 0 0 28px; color: var(--primary-purple); text-align: center; font-size: clamp(1.8rem, 3vw, 2.5rem); }
         .partner-sub { margin: -12px 0 40px; text-align: center; color: #555; }
         .partner-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px; align-items: center; justify-items: center;
         }
         .partner-logo { max-width: 180px; filter: grayscale(100%); transition: filter var(--transition-speed) ease; }
@@ -120,18 +124,17 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.12); }
-        .service-card i { font-size: 2.2rem; color: var(--accent-purple); margin-bottom: 1rem; }
         .service-card h3 { margin: 0 0 .5rem; color: var(--primary-purple); font-size: 1.3rem; }
         .service-card p { margin: 0 0 1rem; color: #555; }
-        .service-price { background: #f0f4f7; padding: 12px 20px; border-radius: 8px; text-align: center; margin-top: 1rem; }
-        .service-price .price { font-size: 1.6rem; font-weight: 700; color: var(--primary-purple); }
-        .service-price .period { font-size: 0.9rem; color: #666; }
+        .service-features { list-style: none; padding-left: 0; margin-bottom: 0; }
+        .service-features li { display: flex; align-items: flex-start; gap: .7rem; padding: .5rem 0; font-size: 0.95rem; }
+        .service-features li::before { content: "✓"; color: var(--accent-blue); font-weight: 800; margin-right: 5px; }
 
         /* Pricing Section */
         .pricing { padding: 80px 0; background: var(--bg-light); }
         .pricing h2 { text-align: center; margin: 0 0 40px; color: var(--primary-purple); font-size: clamp(1.8rem, 3vw, 2.5rem); }
         .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px; max-width: 1000px; margin: 0 auto;
         }
         .pricing-card {
@@ -156,13 +159,27 @@
         .pricing-features li { display: flex; align-items: flex-start; gap: .7rem; padding: .5rem 0; font-size: 0.95rem; }
         .pricing-features li::before { content: "✓"; color: var(--accent-blue); font-weight: 800; margin-right: 5px; }
 
-        /* Microsoft Expertise Section */
-        .microsoft { background: var(--primary-purple); color: #fff; padding: 80px 0; text-align: center; }
-        .microsoft h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); margin: 0 0 1rem; }
-        .microsoft p { max-width: 800px; margin: 0 auto 1.5rem; opacity: .9; }
-        .microsoft-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .badge { border: 2px solid rgba(255,255,255,.25); background: rgba(255,255,255,.12); padding: .6rem 1.5rem; border-radius: 999px; font-weight: 500; }
-        
+        /* FAQ Section */
+        .faq { padding: 80px 0; background: #fff; }
+        .faq h2 { text-align: center; margin: 0 0 40px; color: var(--primary-purple); font-size: clamp(1.8rem, 3vw, 2.5rem); }
+        .faq-accordion { max-width: 800px; margin: 0 auto; }
+        .accordion-item { border-bottom: 1px solid #ddd; }
+        .accordion-title {
+            display: block; width: 100%; text-align: left; background: transparent; border: none; padding: 20px 0;
+            font-size: 1.1rem; font-weight: 600; color: var(--text-dark); cursor: pointer;
+            transition: color var(--transition-speed) ease;
+        }
+        .accordion-title:hover { color: var(--accent-purple); }
+        .accordion-title::after {
+            content: '+'; float: right; transition: transform var(--transition-speed) ease;
+        }
+        .accordion-title.active::after { content: '-'; transform: rotate(180deg); }
+        .accordion-content {
+            padding: 0 20px 20px 0; max-height: 0; overflow: hidden;
+            transition: max-height var(--transition-speed) ease;
+        }
+        .accordion-content p { margin: 0; }
+
         /* Contact Section */
         .contact { background: var(--bg-light); padding: 80px 0; }
         .contact h2 { text-align: center; margin: 0 0 40px; color: var(--primary-purple); font-size: clamp(1.8rem, 3vw, 2.5rem); }
@@ -194,7 +211,7 @@
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-menu { display: block; }
-            .contact-grid { grid-template-columns: 1fr; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
             .hero { padding: calc(var(--header-height) + 60px) 0 80px; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1rem; }
@@ -217,11 +234,10 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#founder">About Us</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#partners">Partners</a></li>
-                <li><a href="#expertise">Microsoft Expertise</a></li>
+                <li><a href="#faq">FAQs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
@@ -241,12 +257,45 @@
         </div>
     </section>
 
-    <section id="founder" class="founder" role="region" aria-label="About the Founder">
-        <div class="container founder-content">
-            <img class="founder-photo" src="./20000101_050122100_iOS.jpg" alt="Photo of SaberGuard Founder">
-            <h2>Meet the Founder</h2>
-            <h3>Your Partner in Cybersecurity</h3>
-            <p>At SaberGuard, we believe in a proactive and personalized approach to security. As the founder, I am committed to building lasting relationships with our clients and ensuring every business, regardless of size, has access to enterprise-grade protection. My mission is to empower you with the knowledge and tools to stay secure in a constantly evolving threat landscape. I'm excited to partner with you to build a resilient defense for your business.  </p>
+    <section id="about" class="about" role="region" aria-label="About SaberGuard">
+        <div class="container">
+            <h2>About SaberGuard</h2>
+            <div class="about-grid">
+                <div>
+                    <p><strong>Securing Futures, One Byte at a Time</strong></p>
+                    <p>At SaberGuard, we provide top-tier cybersecurity, ensuring your digital safety with cutting-edge technology and expert knowledge. As a trailblazing network and security consultancy, our mission is clear: deliver tailored, holistic solutions that seamlessly integrate security, excel in threat management, and optimize cost-efficiency.</p>
+                    <p>Our vision is to establish ourselves as a forefront network and security consulting partner, renowned for delivering high-value, comprehensive solutions tailored to the specific needs of businesses.</p>
+                    <h3>Jonathan DeLeon | Founder & Lead Consultant</h3>
+                    <p>With over eight years of hands-on IT experience across HelpDesk support, System Administration, Cloud Administration, and specialized Cybersecurity roles, I understand the unique challenges of today’s digital landscape and am dedicated to protecting your valuable data and systems. My journey began as a HelpDesk technician, transitioned into System Administration, and then to Cloud Administration before specializing in cybersecurity. This diverse experience allows me to offer comprehensive solutions from risk assessments to network design.</p>
+                    <p>At SaberGuard, we believe in a proactive approach. We closely collaborate with clients to understand their unique needs and develop customized strategies aligned with their business goals. Your small business deserves the best protection in today’s digital world. Let’s secure your future together.</p>
+                    <div class="certifications">
+                        <div class="badge">Certified Professionals</div>
+                        <div class="badge">Microsoft Experts</div>
+                        <div class="badge">Cybersecurity Experts</div>
+                        <div class="badge">10+ Years Experience</div>
+                    </div>
+                </div>
+                <img class="about-photo" src="./20000101_050122100_iOS.jpg" alt="Photo of Jonathan DeLeon">
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <h3>68%</h3>
+                    <p>of breaches involved a human element in 2024</p>
+                </div>
+                <div class="stat-card">
+                    <h3>61%</h3>
+                    <p>of SMBs experienced at least one cyberattack in 2024</p>
+                </div>
+                <div class="stat-card">
+                    <h3>45%</h3>
+                    <p>of SMBs do not have a cybersecurity plan in place</p>
+                </div>
+                <div class="stat-card">
+                    <h3>60%</h3>
+                    <p>of SMBs believe that their cybersecurity measures are not sufficient</p>
+                </div>
+            </div>
+            <p style="margin-top: 40px; text-align: center;">To underscore our commitment to security and transparency, we have created a dedicated page for our <a href="https://www.realciso.app/transparency/rvwwgg9auE54HrDBH" target="_blank" style="color: var(--accent-blue); text-decoration: underline;">Security Transparency Report</a>. This report provides comprehensive details on our security measures, practices, and incidents.</p>
         </div>
     </section>
 
@@ -255,54 +304,78 @@
             <h2>Trusted Security Partners</h2>
             <p class="partner-sub">We integrate best-in-class platforms to deliver layered protection.</p>
             <div class="partner-grid">
-                <img class="partner-logo" loading="lazy" src="https://www.saberguard.tech/assets/partners/guardz.svg" alt="Guardz logo">
-                <img class="partner-logo" loading="lazy" src="https://www.saberguard.tech/assets/partners/sentinelone.svg" alt="SentinelOne logo">
-                <img class="partner-logo" loading="lazy" src="https://www.saberguard.tech/assets/partners/nordpass.svg" alt="NordPass logo">
-                <img class="partner-logo" loading="lazy" src="https://www.saberguard.tech/assets/partners/nordlayer.svg" alt="NordLayer logo">
+                <img class="partner-logo" loading="lazy" src="./guardz.png" alt="Guardz logo">
+                <img class="partner-logo" loading="lazy" src="./sentinelone.png" alt="SentinelOne logo">
+                <img class="partner-logo" loading="lazy" src="./nordpass.png" alt="NordPass logo">
+                <img class="partner-logo" loading="lazy" src="./nordlayer.png" alt="NordLayer logo">
                 <img class="partner-logo" loading="lazy" src="https://www.saberguard.tech/assets/partners/microsoft.svg" alt="Microsoft logo">
             </div>
         </div>
     </section>
 
-    <section id="services" class="services" role="region" aria-label="Services">
+    <section id="services" class="services" role="region" aria-label="Comprehensive Services">
         <div class="container">
             <h2>Comprehensive Cybersecurity Services</h2>
             <div class="services-grid">
                 <article class="service-card">
-                    <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                    <h3>Endpoint Security Management</h3>
-                    <p>AI-driven endpoint protection with automated response and rollback.</p>
-                    <ul class="pricing-features">
-                        <li>24/7 detection & response</li>
-                        <li>Behavioral analytics</li>
-                        <li>Ransomware rollback</li>
-                        <li>Full device visibility</li>
+                    <h3>External Attack Surface</h3>
+                    <p>An external attack surface encompasses all the points where an organization is exposed to potential cyber threats from the internet.</p>
+                    <ul class="service-features">
+                        <li>Identify Vulnerabilities Early</li>
+                        <li>Improve Security Posture</li>
+                        <li>Continuous Monitoring</li>
+                        <li>Proactive Defense</li>
                     </ul>
-                    <div class="service-price"><span class="price">$8–15</span> <span class="period">per endpoint/month</span></div>
                 </article>
                 <article class="service-card">
-                    <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
-                    <h3>Microsoft 365 Security Suite</h3>
-                    <p>Hardened Microsoft 365 with continuous monitoring and governance.</p>
-                    <ul class="pricing-features">
-                        <li>Defender & ATP configuration</li>
-                        <li>Conditional Access</li>
-                        <li>DLP policies</li>
-                        <li>MFA & phishing defense</li>
+                    <h3>Network Security</h3>
+                    <p>We offer network security using Ubiquiti's advanced Intrusion Detection System (IDS) and Intrusion Prevention System (IPS).</p>
+                    <ul class="service-features">
+                        <li>Secure network design and implementation.</li>
+                        <li>Monitor network traffic for anomalies.</li>
+                        <li>Use firewalls, IDS/IPS, and VPNs.</li>
+                        <li>Implement network segmentation.</li>
                     </ul>
-                    <div class="service-price"><span class="price">$25–45</span> <span class="period">per user/month</span></div>
                 </article>
                 <article class="service-card">
-                    <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
-                    <h3>Identity & Access Management</h3>
-                    <p>Azure AD + password security that fits least-privilege and zero-trust.</p>
-                    <ul class="pricing-features">
-                        <li>SSO & app integrations</li>
-                        <li>Privileged Access Mgmt</li>
-                        <li>NordPass policies</li>
-                        <li>Lifecycle governance</li>
+                    <h3>Endpoint Security</h3>
+                    <p>Our All-in-One Security Solution offers advanced Endpoint Security to protect your business from device threats.</p>
+                    <ul class="service-features">
+                        <li>Advanced Threat Detection</li>
+                        <li>Real-Time Monitoring</li>
+                        <li>Automated Response</li>
+                        <li>Comprehensive Coverage</li>
                     </ul>
-                    <div class="service-price"><span class="price">$12–25</span> <span class="period">per user/month</span></div>
+                </article>
+                <article class="service-card">
+                    <h3>Email Security</h3>
+                    <p>Our All-in-One Security Solution offers advanced Email Security to protect from phishing, malware, and ransomware.</p>
+                    <ul class="service-features">
+                        <li>Phishing Protection</li>
+                        <li>Spam Filtering</li>
+                        <li>Email Encryption</li>
+                        <li>Advanced Threat Protection</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <h3>Security Training</h3>
+                    <p>We offer comprehensive security training and phishing simulations to equip your team with the knowledge and skills needed to protect against cyber threats.</p>
+                    <ul class="service-features">
+                        <li>Educate employees on best practices.</li>
+                        <li>Conduct simulated phishing exercises.</li>
+                        <li>Develop custom training programs.</li>
+                        <li>Realistic Phishing Simulations</li>
+                    </ul>
+                </article>
+                <article class="service-card">
+                    <h3>Data Protection</h3>
+                    <p>Our All-in-One Security Solution offers advanced Cloud App Security to protect your business from cloud-based threats.</p>
+                    <ul class="service-features">
+                        <li>Implement encryption for data security.</li>
+                        <li>Develop data protection policies.</li>
+                        <li>Monitor data access and usage.</li>
+                        <li>Ensure data backup and recovery.</li>
+                    </ul>
                 </article>
             </div>
         </div>
@@ -310,62 +383,124 @@
 
     <section id="pricing" class="pricing" role="region" aria-label="Pricing">
         <div class="container">
-            <h2>Service Packages & Pricing</h2>
+            <h2>Tailored Protection, Transparent Pricing</h2>
             <div class="pricing-grid">
                 <article class="pricing-card">
-                    <h3>Essential Security</h3>
-                    <div class="price">$89</div>
+                    <h3>All-in-One Security</h3>
+                    <div class="price">$39</div>
                     <div class="period">per user/month</div>
                     <ul class="pricing-features">
-                        <li>SentinelOne Endpoint Protection</li>
-                        <li>Microsoft 365 Basic Security</li>
-                        <li>NordPass Business</li>
-                        <li>Security awareness basics</li>
-                        <li>Monthly reports</li>
-                        <li>Email & phone support</li>
+                        <li>Endpoint Security</li>
+                        <li>Email Security</li>
+                        <li>Cloud Data Protection (CASB)</li>
+                        <li>Cyber Awareness</li>
+                        <li>External Footprint Reporting</li>
+                        <li>Dark Web Monitoring</li>
+                        <li>Unified Security Platform</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Get Started</a>
                 </article>
                 <article class="pricing-card featured">
-                    <h3>Advanced Protection</h3>
-                    <div class="price">$149</div>
+                    <h3>All-In-One Security + 24/7/365 MDR</h3>
+                    <div class="price">$79</div>
                     <div class="period">per user/month</div>
                     <ul class="pricing-features">
-                        <li>Everything in Essential</li>
-                        <li>24/7 SOC (Guardz + Sentinel)</li>
-                        <li>Advanced M365 security</li>
-                        <li>NordLayer secure access</li>
-                        <li>Incident response</li>
-                        <li>Vulnerability assessments</li>
+                        <li>Everything in All-in-One +</li>
+                        <li>Managed Endpoint Detection & Response (EDR)</li>
+                        <li>24/7 MDR SOC Services</li>
+                        <li>Cyber Threat Intelligence</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Most Popular</a>
                 </article>
                 <article class="pricing-card">
-                    <h3>Enterprise Shield</h3>
-                    <div class="price">$229</div>
-                    <div class="period">per user/month</div>
+                    <h3>IT & Security Consulting</h3>
+                    <div class="price">$75</div>
+                    <div class="period">/hour</div>
                     <ul class="pricing-features">
-                        <li>Everything in Advanced</li>
-                        <li>Dedicated consultant</li>
-                        <li>Custom policies</li>
-                        <li>Threat hunting</li>
-                        <li>Quarterly pen testing</li>
-                        <li>Executive briefings</li>
+                        <li>IT Support Services</li>
+                        <li>Network Support</li>
+                        <li>Cloud Services Support</li>
+                        <li>Cyber Security Support</li>
+                        <li>Risk Mitigation</li>
+                        <li>Compliance Assurance</li>
+                        <li>Cybersecurity Policy Review</li>
+                        <li>Cybersecurity Insurance Review</li>
+                        <li>Continuous Improvement</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Contact Sales</a>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="expertise" class="microsoft" role="region" aria-label="Microsoft Expertise">
+    <section id="faq" class="faq" role="region" aria-label="Frequently Asked Questions">
         <div class="container">
-            <h2>Microsoft Security Specialists</h2>
-            <p>Certified experts leveraging Microsoft 365, Azure, and Defender to maximize security outcomes and ROI.</p>
-            <div class="microsoft-badges">
-                <div class="badge">Microsoft 365 Certified</div>
-                <div class="badge">Azure Security Engineer</div>
-                <div class="badge">Microsoft Partner</div>
+            <h2>Clear Answers, Secure Solutions</h2>
+            <div class="faq-accordion">
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-1">
+                        Why do businesses need cyber security services?
+                    </button>
+                    <div id="faq-content-1" class="accordion-content">
+                        <p>Businesses need cybersecurity services to protect their digital assets from threats like hacking, malware, and data breaches. These services ensure the confidentiality, integrity, and availability of sensitive information, helping to prevent financial losses, reputational damage, and legal issues. Implementing robust cybersecurity measures also helps businesses comply with regulatory frameworks such as HIPAA and GDPR, which set standards for protecting sensitive data and managing cybersecurity risks. By safeguarding their operations, businesses can maintain customer trust and thrive in the digital age.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-2">
+                        What services are included in your all-in-one solution?
+                    </button>
+                    <div id="faq-content-2" class="accordion-content">
+                        <p>Our All-in-One Security solution includes: Endpoint Security, Email Security, Cloud Data Protection (CASB), Cyber Awareness Training, External Footprint Reporting, Dark Web Monitoring, and a Unified Security Platform.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-3">
+                        How can cyber security services help prevent cyber attacks?
+                    </button>
+                    <div id="faq-content-3" class="accordion-content">
+                        <p>Cybersecurity services prevent attacks through a multi-layered approach that includes implementing firewalls and intrusion prevention systems, monitoring network traffic for anomalies, securing endpoints, and training employees to recognize and avoid threats like phishing.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-4">
+                        Are cyber security services only for large businesses?
+                    </button>
+                    <div id="faq-content-4" class="accordion-content">
+                        <p>No, cybersecurity services are crucial for businesses of all sizes. Small and medium-sized businesses (SMBs) are often targeted by cybercriminals due to their perceived lack of robust security, making them a high-risk group. Our solutions are designed to be cost-effective and tailored to meet the specific needs of SMBs.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-5">
+                        What types of cyber threats should small businesses be aware of?
+                    </button>
+                    <div id="faq-content-5" class="accordion-content">
+                        <p>Small businesses should be aware of threats such as phishing, ransomware, malware, social engineering, and data breaches. These attacks can lead to significant financial loss, operational disruption, and damage to your business reputation.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-6">
+                        How does your service help with regulatory compliance?
+                    </button>
+                    <div id="faq-content-6" class="accordion-content">
+                        <p>We assist with compliance by helping you implement cybersecurity policies and controls that align with regulatory frameworks like HIPAA and GDPR. Our services include security assessments, policy reviews, and continuous monitoring to ensure your business meets and maintains compliance standards.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-7">
+                        What is external footprint monitoring?
+                    </button>
+                    <div id="faq-content-7" class="accordion-content">
+                        <p>External footprint monitoring involves continuously scanning and mapping your organization's internet-facing assets to identify vulnerabilities and potential entry points that cybercriminals could exploit. This proactive approach helps you find and fix weaknesses before they are discovered by attackers.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-title" aria-expanded="false" aria-controls="faq-content-8">
+                        What kind of support can I expect from your services?
+                    </button>
+                    <div id="faq-content-8" class="accordion-content">
+                        <p>You can expect responsive and expert support via email and phone during business hours. For our premium packages, we offer 24/7/365 Managed Detection and Response (MDR), ensuring a team of security experts is always on alert to respond to incidents.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -414,10 +549,40 @@
 
     <script>
         // Mobile menu toggle
-        document.getElementById('menuBtn').addEventListener('click', () => {
-            const nav = document.getElementById('nav-links');
-            const isExpanded = nav.classList.toggle('active');
-            nav.setAttribute('aria-expanded', isExpanded);
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = navLinks.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.accordion-title').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                // Close all other open items
+                document.querySelectorAll('.accordion-title.active').forEach(openButton => {
+                    if (openButton !== button) {
+                        openButton.classList.remove('active');
+                        openButton.setAttribute('aria-expanded', 'false');
+                        openButton.nextElementSibling.style.maxHeight = null;
+                    }
+                });
+
+                // Toggle the clicked item
+                if (!isExpanded) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    button.classList.remove('active');
+                    button.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = null;
+                }
+            });
         });
         
         // Dynamic year in footer
